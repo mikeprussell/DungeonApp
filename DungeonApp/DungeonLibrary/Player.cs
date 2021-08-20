@@ -20,7 +20,7 @@ namespace DungeonLibrary
 
             switch (PlayerRace)
             {
-                case Race.Dwarf:
+                case Race.Human:
                     Block += 10;
                     MaxLife += 5;
                     Life += 5;
@@ -30,12 +30,12 @@ namespace DungeonLibrary
                     MaxLife += 2;
                     Life += 2;
                     break;
-                case Race.HalfElf:
+                case Race.Dwarf:
                     Block += 5;
                     MaxLife += 10;
                     Life += 5;
                     break;
-                case Race.Human:
+                case Race.Warlock:
                     MaxLife += 2;
                     Life += 2;
                     HitChance += 5;

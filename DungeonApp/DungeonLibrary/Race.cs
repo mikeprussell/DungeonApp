@@ -8,10 +8,10 @@ namespace DungeonLibrary
 {
     public enum Race
     {
-        Dwarf,
-        Elf,
-        HalfElf,
         Human,
+        Elf,
+        Dwarf,
+        Warlock,
         Gnome,
         Halfling
     }

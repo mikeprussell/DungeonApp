@@ -36,7 +36,7 @@ namespace Dungeon
                            |_|  |_|\__\__,_|_| |_|___/ |_|  \_\_|_|  \__| 
 "); 
 
-            Console.WriteLine("Enter your name, hero: ");
+            Console.WriteLine("\nEnter your name, hero: ");
             heroName = Console.ReadLine();
             Console.Clear();
 
@@ -45,10 +45,10 @@ namespace Dungeon
             do
             {
                 Console.WriteLine("Choose your race:\n" +
-                    "1) Dwarf\n" +
+                    "1) Human\n" +
                     "2) Elf\n" +
-                    "3) HalfElf\n" +
-                    "4) Human\n" +
+                    "3) Dwarf\n" +
+                    "4) Warlock\n" +
                     "5) Gnome\n" +
                     "6) Halfling");
                 ConsoleKey raceChoice = Console.ReadKey().Key;
@@ -58,7 +58,7 @@ namespace Dungeon
                 {
                     case ConsoleKey.D1:
                     case ConsoleKey.NumPad1:
-                        heroRace = Race.Dwarf;
+                        heroRace = Race.Human;
                         raceMenu = false;
                         break;
                     case ConsoleKey.D2:
@@ -68,12 +68,12 @@ namespace Dungeon
                         break;
                     case ConsoleKey.D3:
                     case ConsoleKey.NumPad3:
-                        heroRace = Race.HalfElf;
+                        heroRace = Race.Dwarf;
                         raceMenu = false;
                         break;
                     case ConsoleKey.D4:
                     case ConsoleKey.NumPad4:
-                        heroRace = Race.Human;
+                        heroRace = Race.Warlock;
                         raceMenu = false;
                         break;
                     case ConsoleKey.D5:
@@ -96,10 +96,37 @@ namespace Dungeon
 
             Console.Clear();
             Console.WriteLine($"Welcome, {heroName} the {heroRace}!\nYour journey begins...\n");
-            System.Threading.Thread.Sleep(2500);
+            System.Threading.Thread.Sleep(1000);
 
-            Console.WriteLine("You descend into the lightless depths...\n");
-            System.Threading.Thread.Sleep(2500);
+            Console.WriteLine("You gallop toward the entrance of the castle...\n");
+            System.Threading.Thread.Sleep(1000);
+
+            Console.WriteLine(@"        \|              |/");
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine(@"         \|            |/");
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine(@"          \|          |/");
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine(@"           \|        |/");
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine(@"            \|      |/");
+            Console.WriteLine();
+
+            System.Threading.Thread.Sleep(1000);
+            Console.WriteLine("equipped with only your rusty battle axe.\n");
+
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine(@"
+             _,-,
+            T_  |
+            ||`-'
+            ||
+            ||
+            ~~
+");
+
+            Console.WriteLine("\nPress any key to proceed.");
+            Console.ReadKey();
 
             Weapon rustyAxe = new Weapon("Rusty Axe", 0, -1, 3, true);
             Player player = new Player(heroName, 60, 12, 55, 55, heroRace, rustyAxe);
@@ -109,10 +136,14 @@ namespace Dungeon
             do
             {
                 Console.WriteLine(Room.GetRoom());
-                Monster imp = new Monster("Fire Imp", 30, 2, 5, 5, 1, 3,
+                Monster imp = new Monster("Imp", 30, 2, 5, 5, 1, 3,
                     "An evil flying demon sneers at you menacingly.");
-                Monster bokoblin = new Monster("Bokoblin", 20, 4, 2, 2, 1, 3,
-                    "A humanoid creatures with long ears cackles at you.");
+
+                Monster boarklin = new Monster("Boarklin", 20, 4, 2, 2, 1, 3,
+                    "A humanoid creatures with long ears, pig snout and sharp-pointed teeth cackles at you.");
+
+                Monster troll = new Monster("Troll", 20, 4, 2, 2, 1, 3,
+                    "Disfigured and bloodthirsty... this creature of darkness roars as drool drips to the floor.");
 
                 Spider giantSpider = new Spider("Giant Spider", 40, 10, 10, 10, 1, 4,
                     "This grotesque abomination is the size of a large dog.",
@@ -124,7 +155,7 @@ namespace Dungeon
 
                 Monster[] monsters =
                 {
-                    imp, imp, imp, bokoblin, bokoblin, giantSpider, swordSpider, giantSpider
+                    imp, troll, imp, boarklin, boarklin, giantSpider, swordSpider, giantSpider
                 };
 
                 Random rand = new Random();
