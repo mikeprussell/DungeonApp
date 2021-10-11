@@ -260,8 +260,6 @@ namespace Dungeon
                                     Console.ResetColor();
                                 }
 
-                                
-
                                 //TODO Add Other Kill Counts and Once Health Drops
 
                                 System.Threading.Thread.Sleep(2500);
