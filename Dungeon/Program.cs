@@ -260,7 +260,7 @@ namespace Dungeon
                                     Console.ResetColor();
                                 }
 
-                                //TODO Add Other Kill Counts and Once Health Drops
+                                //TODO Add Other Kill Counts and Once Health Drops To A Certain Level
 
                                 System.Threading.Thread.Sleep(2500);
                                 Console.WriteLine("\nOn to the next room!\n");
