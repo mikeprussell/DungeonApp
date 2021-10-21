@@ -117,7 +117,7 @@ namespace Dungeon
             Console.WriteLine();
 
             System.Threading.Thread.Sleep(2000);
-            Console.WriteLine("Brazenly equipped with just a mere rusty axe.");
+            Console.WriteLine("Brazenly equipped with just a rusty axe.");
 
             System.Threading.Thread.Sleep(1500);
             Console.WriteLine(@"
@@ -139,7 +139,7 @@ namespace Dungeon
             Console.WriteLine("You enter sneakily through a door to the right of castle gate.");
             Console.ResetColor();
 
-            System.Threading.Thread.Sleep(1500);
+            System.Threading.Thread.Sleep(2500);
             Console.WriteLine("\nPress any key to proceed.");
             Console.ReadKey();
 
@@ -225,8 +225,10 @@ namespace Dungeon
                                     Console.WriteLine("\nThe " + monster.Name + " was standing over a broad sword!");
                                     System.Threading.Thread.Sleep(1500);
                                     Console.WriteLine("The broad sword is now equipped. ");
-                                    BroadSword broadsword1 = new BroadSword("Broad Sword", 1, 1, 5, false,
-                                    new Random().Next(3) == 1 ? true : false, "");
+                                    BroadSword broadSword1 = new BroadSword("Broad Sword", 1, 1, 5, false, new Random().Next(3) == 1 ? true : false, "Broad Sword");
+
+                                    player.EquippedWeapon = broadSword1;
+
                                     Console.ResetColor();
                                 }
 
@@ -249,7 +251,7 @@ namespace Dungeon
                                 {
                                     System.Threading.Thread.Sleep(1500);
                                     Console.ForegroundColor = ConsoleColor.Green;
-                                    Console.WriteLine("\nThe " + monster.Name + "vanquished body has uncovered a chest.");
+                                    Console.WriteLine("\nThe " + monster.Name + "'s vanquished body has uncovered a chest.");
                                     System.Threading.Thread.Sleep(1500);
                                     Console.WriteLine("The potion in the chest seems suspicious... oh well, down the hatch");
                                     System.Threading.Thread.Sleep(1500);
@@ -260,13 +262,29 @@ namespace Dungeon
                                     Console.ResetColor();
                                 }
 
+                                if (killCount == 4)
+                                {
+                                    System.Threading.Thread.Sleep(1500);
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.WriteLine("\nThe " + monster.Name + "'s vanquished body has uncovered a chest.");
+                                    System.Threading.Thread.Sleep(1500);
+                                    Console.WriteLine("Within the chest you discovered a knights longsword");
+                                    System.Threading.Thread.Sleep(1500);
+                                    Console.WriteLine("The knights longsword can deal more damage; however, since this weapon is two handed you can not use your shield. Your shield has been unequipped to your back.");
+                                    LongSword longSword1 = new LongSword("Long Sword", 2, 2, 7, true, "Knights Long Sword");
+
+                                    player.EquippedWeapon = longSword1;
+
+                                    Console.ResetColor();
+                                }
+
                                 //TODO Add Other Kill Counts and Once Health Drops To A Certain Level
 
                                 System.Threading.Thread.Sleep(2500);
                                 Console.WriteLine("\nOn to the next room!\n");
                                 reload = true;
                                 System.Threading.Thread.Sleep(2500);
-          
+
                             }
                             break;
 
